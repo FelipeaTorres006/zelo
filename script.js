@@ -1,71 +1,89 @@
 const profissionais = [
   {
-    iniciais: 'CS', corAvatar: 'av-teal',
-    nome: 'Dra. Carla Souza',
-    spec: 'Fisioterapeuta neurológica',
-    registro: 'CREFITO-10 48291',
-    modalidade: 'Presencial', plano: 'Não aceita convênio',
-    valor: 'R$ 120 / sessão',
-    disponibilidade: ['Seg', 'Qua', 'Sex'],
-    badge: 'Disponível hoje', badgeCor: 'badge-green',
-    sobre: 'Especialista em reabilitação neurológica com foco em pacientes pós-AVC. Formada pela UniEVANGÉLICA com 6 anos de experiência em Anápolis. Atendimento humanizado e personalizado.',
-    whats: '5562991110001'
+    iniciais: "CS",
+    corAvatar: "av-teal",
+    nome: "Dra. Carla Souza",
+    spec: "Fisioterapeuta neurológica",
+    registro: "CREFITO-10 48291",
+    modalidade: "Presencial",
+    plano: "Não aceita convênio",
+    valor: "R$ 120 / sessão",
+    disponibilidade: ["Seg", "Qua", "Sex"],
+    badge: "Disponível hoje",
+    badgeCor: "badge-green",
+    sobre:
+      "Especialista em reabilitação neurológica com foco em pacientes pós-AVC. Formada pela UniEVANGÉLICA com 6 anos de experiência em Anápolis. Atendimento humanizado e personalizado.",
+    whats: "5562991110001",
   },
   {
-    iniciais: 'RM', corAvatar: 'av-blue',
-    nome: 'Dr. Rafael Melo',
-    spec: 'Fisioterapeuta · atendimento domiciliar',
-    registro: 'CREFITO-10 51047',
-    modalidade: 'Domiciliar', plano: 'Aceita convênio',
-    valor: 'R$ 150 / sessão',
-    disponibilidade: ['Ter', 'Qui', 'Sáb'],
-    badge: 'Aceita plano', badgeCor: 'badge-blue',
-    sobre: 'Fisioterapeuta com especialização em reabilitação motora e domiciliar. Atende pacientes que não conseguem se deslocar até clínicas, levando o tratamento até a sua casa em Anápolis e região.',
-    whats: '5562991110002'
+    iniciais: "RM",
+    corAvatar: "av-blue",
+    nome: "Dr. Rafael Melo",
+    spec: "Fisioterapeuta · atendimento domiciliar",
+    registro: "CREFITO-10 51047",
+    modalidade: "Domiciliar",
+    plano: "Aceita convênio",
+    valor: "R$ 150 / sessão",
+    disponibilidade: ["Ter", "Qui", "Sáb"],
+    badge: "Aceita plano",
+    badgeCor: "badge-blue",
+    sobre:
+      "Fisioterapeuta com especialização em reabilitação motora e domiciliar. Atende pacientes que não conseguem se deslocar até clínicas, levando o tratamento até a sua casa em Anápolis e região.",
+    whats: "5562991110002",
   },
   {
-    iniciais: 'TF', corAvatar: 'av-coral',
-    nome: 'Dra. Tânia Freitas',
-    spec: 'Fonoaudióloga · disfagia e fala',
-    registro: 'CFFa 38194',
-    modalidade: 'Presencial', plano: 'Aceita convênio',
-    valor: 'R$ 100 / sessão',
-    disponibilidade: ['Seg', 'Ter', 'Qui'],
-    badge: '3 vagas esta semana', badgeCor: 'badge-green',
-    sobre: 'Fonoaudióloga especializada em disfagia neurogênica e reabilitação da fala e deglutição em pacientes com sequelas de AVC. 8 anos de experiência em Goiás.',
-    whats: '5562991110003'
+    iniciais: "TF",
+    corAvatar: "av-coral",
+    nome: "Dra. Tânia Freitas",
+    spec: "Fonoaudióloga · disfagia e fala",
+    registro: "CFFa 38194",
+    modalidade: "Presencial",
+    plano: "Aceita convênio",
+    valor: "R$ 100 / sessão",
+    disponibilidade: ["Seg", "Ter", "Qui"],
+    badge: "3 vagas esta semana",
+    badgeCor: "badge-green",
+    sobre:
+      "Fonoaudióloga especializada em disfagia neurogênica e reabilitação da fala e deglutição em pacientes com sequelas de AVC. 8 anos de experiência em Goiás.",
+    whats: "5562991110003",
   },
   {
-    iniciais: 'LB', corAvatar: 'av-amber',
-    nome: 'Dr. Lucas Barbosa',
-    spec: 'Terapeuta Ocupacional',
-    registro: 'CREFITO-10 62831',
-    modalidade: 'Presencial', plano: 'Aceita convênio',
-    valor: 'R$ 130 / sessão',
-    disponibilidade: ['Qua', 'Sex'],
-    badge: 'Aceita plano · presencial', badgeCor: 'badge-gray',
-    sobre: 'Terapeuta Ocupacional com foco em autonomia funcional do paciente neurológico. Trabalha com adaptações de vida diária e reintegração social após AVC.',
-    whats: '5562991110004'
-  }
+    iniciais: "LB",
+    corAvatar: "av-amber",
+    nome: "Dr. Lucas Barbosa",
+    spec: "Terapeuta Ocupacional",
+    registro: "CREFITO-10 62831",
+    modalidade: "Presencial",
+    plano: "Aceita convênio",
+    valor: "R$ 130 / sessão",
+    disponibilidade: ["Qua", "Sex"],
+    badge: "Aceita plano · presencial",
+    badgeCor: "badge-gray",
+    sobre:
+      "Terapeuta Ocupacional com foco em autonomia funcional do paciente neurológico. Trabalha com adaptações de vida diária e reintegração social após AVC.",
+    whats: "5562991110004",
+  },
 ];
 
 let proAtivo = 0;
 
 function show(id) {
-  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
+  document
+    .querySelectorAll(".screen")
+    .forEach((s) => s.classList.remove("active"));
+  document.getElementById(id).classList.add("active");
   window.scrollTo(0, 0);
 }
 
 function toggleChip(el) {
-  el.classList.toggle('sel');
+  el.classList.toggle("sel");
 }
 
 function selectPro(idx) {
   proAtivo = idx;
   const p = profissionais[idx];
 
-  document.getElementById('perfil-body').innerHTML = `
+  document.getElementById("perfil-body").innerHTML = `
     <div class="prof-hero">
       <div class="avatar ${p.corAvatar}" style="width:72px;height:72px;font-size:22px;margin:0 auto 12px">${p.iniciais}</div>
       <h2>${p.nome}</h2>
@@ -88,7 +106,7 @@ function selectPro(idx) {
       <div class="info-row col">
         <span class="info-key">Disponibilidade</span>
         <div class="avail-chips">
-          ${p.disponibilidade.map(d => `<div class="avail-chip">${d}</div>`).join('')}
+          ${p.disponibilidade.map((d) => `<div class="avail-chip">${d}</div>`).join("")}
         </div>
       </div>
     </div>
@@ -100,11 +118,11 @@ function selectPro(idx) {
   `;
 
   const msg = encodeURIComponent(
-    `Olá, ${p.nome}! Encontrei seu perfil na plataforma Zelo e gostaria de agendar uma sessão de reabilitação.`
+    `Olá, ${p.nome}! Encontrei seu perfil na plataforma Zelo e gostaria de agendar uma sessão de reabilitação.`,
   );
   const waLink = `https://wa.me/${p.whats}?text=${msg}`;
 
-  document.getElementById('contato-body').innerHTML = `
+  document.getElementById("contato-body").innerHTML = `
     <div class="contact-hero">
       <div class="avatar ${p.corAvatar}" style="width:64px;height:64px;font-size:20px;margin:0 auto 10px">${p.iniciais}</div>
       <h2>${p.nome}</h2>
@@ -124,32 +142,33 @@ function selectPro(idx) {
     <button class="btn btn-ghost mt-8" onclick="show('perfil')">Voltar para o perfil</button>
   `;
 
-  show('perfil');
+  show("perfil");
 }
 
 function submitPro() {
-  const nome     = document.getElementById('pro-nome').value.trim();
-  const esp      = document.getElementById('pro-esp').value;
-  const registro = document.getElementById('pro-registro').value.trim();
-  const whats    = document.getElementById('pro-whats').value.trim();
-  const valor    = document.getElementById('pro-valor').value.trim();
+  const nome = document.getElementById("pro-nome").value.trim();
+  const esp = document.getElementById("pro-esp").value;
+  const registro = document.getElementById("pro-registro").value.trim();
+  const whats = document.getElementById("pro-whats").value.trim();
+  const valor = document.getElementById("pro-valor").value.trim();
 
   if (!nome || !esp) {
-    alert('Preencha pelo menos nome e especialidade para continuar.');
+    alert("Preencha pelo menos nome e especialidade para continuar.");
     return;
   }
 
   const msg = encodeURIComponent(
     `Olá! Quero me cadastrar na Zelo como profissional.\n\n` +
-    `👤 Nome: ${nome}\n` +
-    `🏥 Especialidade: ${esp}\n` +
-    `📋 Registro: ${registro || 'Não informado'}\n` +
-    `📱 WhatsApp: ${whats || 'Não informado'}\n` +
-    `💰 Valor da sessão: ${valor || 'Não informado'}`
+      `👤 Nome: ${nome}\n` +
+      `🏥 Especialidade: ${esp}\n` +
+      `📋 Registro: ${registro || "Não informado"}\n` +
+      `📱 WhatsApp: ${whats || "Não informado"}\n` +
+      `💰 Valor da sessão: ${valor || "Não informado"}`,
   );
 
-  const waLink = `https://wa.me/5562922514600?text=${msg}`;
+  const waLink = `https://wa.me/556292251460?text=${msg}`;
 
-  document.getElementById('sucesso-wa-btn').onclick = () => window.open(waLink, '_blank');
-  show('pro-sucesso');
+  document.getElementById("sucesso-wa-btn").onclick = () =>
+    window.open(waLink, "_blank");
+  show("pro-sucesso");
 }
