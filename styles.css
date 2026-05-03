@@ -33,7 +33,7 @@
 }
 
 body {
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
   background: var(--gray-50);
   color: var(--gray-900);
   min-height: 100vh;
