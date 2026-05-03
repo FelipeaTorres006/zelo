@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
+    />
+    <title>Zelo — Cuidado que conecta</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <!-- TELA 1: HOME -->
+      <div class="screen active" id="home">
+        <div class="header">
+          <div class="logo-mark">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M12 21.7C5.8 17.5 2 13.2 2 9a7 7 0 0 1 10-6.3A7 7 0 0 1 22 9c0 4.2-3.8 8.5-10 12.7z"
+              />
+            </svg>
+          </div>
+          <div>
+            <div class="logo-text">Zelo</div>
+            <div class="logo-sub">cuidado que conecta</div>
+          </div>
+        </div>
+        <div class="body">
+          <div class="hero">
+            <h1>Reabilitação pós-AVC <em>mais próxima</em> de quem precisa</h1>
+            <p>
+              Conectamos famílias que buscam cuidado com profissionais de saúde
+              especializados em Anápolis e região.
+            </p>
+          </div>
+          <div class="section-label">O que você precisa?</div>
+          <div class="path-card" onclick="show('filtro')">
+            <div class="path-icon pi-patient">
+              <svg viewBox="0 0 24 24">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+              </svg>
+            </div>
+            <div class="path-info">
+              <h3>Sou familiar ou paciente</h3>
+              <p>
+                Encontre fisioterapeutas, fonoaudiólogos e outros especialistas
+                perto de você.
+              </p>
+            </div>
+            <div class="path-arrow">›</div>
+          </div>
+          <div class="path-card" onclick="show('pro-cadastro')">
+            <div class="path-icon pi-pro">
+              <svg viewBox="0 0 24 24">
+                <rect x="2" y="7" width="20" height="14" rx="2" />
+                <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2" />
+              </svg>
+            </div>
+            <div class="path-info">
+              <h3>Sou profissional de saúde</h3>
+              <p>
+                Cadastre-se e seja encontrado por pacientes que precisam de você
+                agora.
+              </p>
+            </div>
+            <div class="path-arrow">›</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TELA 2: FILTRO -->
+      <div class="screen" id="filtro">
+        <div class="header">
+          <button class="back-btn" onclick="show('home')">
+            <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6" /></svg>
+          </button>
+          <div>
+            <div class="header-title">Buscar profissional</div>
+            <div class="header-sub">Selecione os filtros</div>
+          </div>
+        </div>
+        <div class="body">
+          <div class="section-label">Especialidade</div>
+          <div class="chip-group">
+            <div class="chip sel" onclick="toggleChip(this)">Fisioterapia</div>
+            <div class="chip" onclick="toggleChip(this)">Fonoaudiologia</div>
+            <div class="chip" onclick="toggleChip(this)">
+              Terapia Ocupacional
+            </div>
+            <div class="chip" onclick="toggleChip(this)">Psicologia</div>
+            <div class="chip" onclick="toggleChip(this)">Nutrição</div>
+            <div class="chip" onclick="toggleChip(this)">Cuidador de Idosos</div>
+          </div>
+          <div class="section-label">Modalidade</div>
+          <div class="chip-group">
+            <div class="chip sel" onclick="toggleChip(this)">Presencial</div>
+            <div class="chip" onclick="toggleChip(this)">Domiciliar</div>
+            <div class="chip" onclick="toggleChip(this)">Online</div>
+          </div>
+          <div class="section-label">Pagamento</div>
+          <div class="chip-group">
+            <div class="chip" onclick="toggleChip(this)">Particular</div>
+            <div class="chip" onclick="toggleChip(this)">Plano de saúde</div>
+          </div>
+          <div class="spacer"></div>
+          <button class="btn btn-primary" onclick="show('resultados')">
+            Ver profissionais →
+          </button>
+        </div>
+      </div>
+
+      <!-- TELA 3: RESULTADOS -->
+      <div class="screen" id="resultados">
+        <div class="header">
+          <button class="back-btn" onclick="show('filtro')">
+            <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6" /></svg>
+          </button>
+          <div>
+            <div class="header-title">Profissionais</div>
+            <div class="header-sub">
+              Anápolis e região ·
+              <span style="color: var(--teal-600)">1 encontrado</span>
+            </div>
+          </div>
+        </div>
+        <div class="body" style="gap: 10px">
+          <div class="prof-card" onclick="selectPro(0)">
+            <div class="avatar av-teal">CS</div>
+            <div class="prof-info">
+              <div class="prof-name">Dra. Carla Souza</div>
+              <div class="prof-spec">Fisioterapeuta neurológica</div>
+              <div class="prof-price">R$ 120 / sessão</div>
+              <div class="badge badge-green">Disponível hoje</div>
+            </div>
+          </div>
+        </div>
+        <div class="footer-nav">
+          <div class="nav-item active">
+            <svg viewBox="0 0 24 24">
+              <circle cx="11" cy="11" r="8" />
+              <line x1="21" y1="21" x2="16.65" y2="16.65" />
+            </svg>
+            <span>Buscar</span>
+          </div>
+          <div class="nav-item" onclick="show('home')">
+            <svg viewBox="0 0 24 24">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+              <polyline points="9 22 9 12 15 12 15 22" />
+            </svg>
+            <span>Início</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- TELA 4: PERFIL (corpo dinâmico via JS) -->
+      <div class="screen" id="perfil">
+        <div class="header">
+          <button class="back-btn" onclick="show('resultados')">
+            <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6" /></svg>
+          </button>
+          <div><div class="header-title">Perfil</div></div>
+        </div>
+        <div class="body" id="perfil-body"></div>
+      </div>
+
+      <!-- TELA 5: CONTATO (corpo dinâmico via JS) -->
+      <div class="screen" id="contato">
+        <div class="header">
+          <button class="back-btn" onclick="show('perfil')">
+            <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6" /></svg>
+          </button>
+          <div><div class="header-title">Entrar em contato</div></div>
+        </div>
+        <div class="body" id="contato-body"></div>
+      </div>
+
+      <!-- TELA 6: CADASTRO PROFISSIONAL -->
+      <div class="screen" id="pro-cadastro">
+        <div class="header">
+          <button class="back-btn" onclick="show('home')">
+            <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6" /></svg>
+          </button>
+          <div><div class="header-title">Cadastro profissional</div></div>
+        </div>
+        <div class="body">
+          <div class="pro-hero">
+            <h2>Apareça para quem precisa de você</h2>
+            <p>
+              Profissionais na Zelo recebem contatos de pacientes que já saíram
+              do hospital e precisam de tratamento agora. R$ 30/mês — cancele
+              quando quiser.
+            </p>
+          </div>
+          <div class="form-group">
+            <div class="form-label">Nome completo</div>
+            <input
+              type="text"
+              class="form-input"
+              id="pro-nome"
+              placeholder="Dra. Ana Oliveira"
+            />
+          </div>
+          <div class="form-group">
+            <div class="form-label">Especialidade principal</div>
+            <select class="form-input" id="pro-esp">
+              <option value="">Selecione...</option>
+              <option>Fisioterapia</option>
+              <option>Fonoaudiologia</option>
+              <option>Cuidador de idoso</option>
+              <option>Neurologia</option>
+              <option>Psicologia</option>
+              <option>Nutrição</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <div class="form-label">
+              Número de registro (CREFITO / CRM / CFFa)
+            </div>
+            <input
+              type="text"
+              class="form-input"
+              id="pro-registro"
+              placeholder="Ex: CREFITO-10 12345"
+            />
+          </div>
+          <div class="form-group">
+            <div class="form-label">WhatsApp para contato</div>
+            <input
+              type="tel"
+              class="form-input"
+              id="pro-whats"
+              placeholder="(62) 9 9999-9999"
+            />
+          </div>
+          <div class="form-group">
+            <div class="form-label">Valor da sessão</div>
+            <input
+              type="text"
+              class="form-input"
+              id="pro-valor"
+              placeholder="Ex: R$ 120"
+            />
+          </div>
+          <div class="section-label">Modalidade de atendimento</div>
+          <div class="chip-group">
+            <div class="chip" onclick="toggleChip(this)">Presencial</div>
+            <div class="chip" onclick="toggleChip(this)">Domiciliar</div>
+            <div class="chip" onclick="toggleChip(this)">Online</div>
+          </div>
+          <div class="spacer"></div>
+          <button class="btn btn-primary" onclick="submitPro()">
+            Quero me cadastrar →
+          </button>
+          <p class="muted center mt-8">
+            Gratuito durante o período de lançamento
+          </p>
+        </div>
+      </div>
+
+      <!-- TELA 7: SUCESSO CADASTRO -->
+      <div class="screen" id="pro-sucesso">
+        <div class="success-screen">
+          <div class="success-icon">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" /></svg>
+          </div>
+          <h2>Cadastro recebido!</h2>
+          <p>
+            Entraremos em contato em breve para finalizar seu acesso. Em poucos
+            dias você já estará visível para pacientes em Anápolis e região.
+          </p>
+          <button class="btn btn-outline" onclick="show('home')">
+            Voltar ao início
+          </button>
+        </div>
+      </div>
+    </div>
+    <script src="script.js" defer></script>
+  </body>
+</html>
