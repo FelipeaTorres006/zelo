@@ -128,11 +128,28 @@ function selectPro(idx) {
 }
 
 function submitPro() {
-  const nome = document.getElementById('pro-nome').value.trim();
-  const esp  = document.getElementById('pro-esp').value;
+  const nome     = document.getElementById('pro-nome').value.trim();
+  const esp      = document.getElementById('pro-esp').value;
+  const registro = document.getElementById('pro-registro').value.trim();
+  const whats    = document.getElementById('pro-whats').value.trim();
+  const valor    = document.getElementById('pro-valor').value.trim();
+
   if (!nome || !esp) {
     alert('Preencha pelo menos nome e especialidade para continuar.');
     return;
   }
+
+  const msg = encodeURIComponent(
+    `Olá! Quero me cadastrar na Zelo como profissional.\n\n` +
+    `👤 Nome: ${nome}\n` +
+    `🏥 Especialidade: ${esp}\n` +
+    `📋 Registro: ${registro || 'Não informado'}\n` +
+    `📱 WhatsApp: ${whats || 'Não informado'}\n` +
+    `💰 Valor da sessão: ${valor || 'Não informado'}`
+  );
+
+  const waLink = `https://wa.me/5562922514600?text=${msg}`;
+
+  document.getElementById('sucesso-wa-btn').onclick = () => window.open(waLink, '_blank');
   show('pro-sucesso');
 }
